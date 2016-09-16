@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+<title>Sign Up form - Bootsnipp.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link
+	href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+	rel="stylesheet" />
+<style type="text/css">
+</style>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="span3">
+		<h2>Cadastrar</h2>
+		<h:form>
+			<label>Primeiro Nome</label>
+			<input type="text" name="firstname" class="span3" value="#{pessoaBean.pessoa.nome}"/>
+			<label>Sobrenome</label>
+			<input type="text" name="lastname" class="span3" value="#{pessoaBean.pessoa.sobrenome}"/>
+			<label>Endereço de e-mail</label>
+			<input type="email" name="email" class="span3" value="#{pessoaBean.pessoa.email}"/>
+			<label>Usuário</label>
+			<input type="text" name="username" class="span3" value="#{pessoaBean.pessoa.usuario}"/>
+			<label>Senha</label>
+			<input type="password" name="password" class="span3" value="#{pessoaBean.pessoa.senha}"/>
+			<label><input type="checkbox" name="terms" /> Eu concordo com
+				<a href="#">Termos e Condições</a>.</label>
+			<h:commandButton type="submit" action="#{pessoaBean.inserirPessoa}" value="Sign up" class="btn btn-primary pull-right"   />
+			<div class="clearfix"></div>
+		</h:form>
+		<a href="#{request.contextPath}/publico//index.xhtml">Home</a><hr/>
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

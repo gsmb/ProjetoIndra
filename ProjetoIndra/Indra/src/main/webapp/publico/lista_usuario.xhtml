@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Lista de Usuários</title>
+</h:head>
+<body>
+	<h:form>
+		<div align="center">
+
+			<h:dataTable value="#{usuarioCtrl.listagem}" var="u">
+				<f:facet name="header">Lista de Cadastrados</f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Nome" />
+					</f:facet>
+					<h:outputLabel value="#{u.nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Sobrenome" />
+					</f:facet>
+					<h:outputLabel value="#{u.sobrenome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="e-mail" />
+					</f:facet>
+					<h:outputLabel value="#{u.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Usuário" />
+					</f:facet>
+					<h:outputLabel value="#{u.usuario}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Alterar" />
+					</f:facet>
+					<h:commandButton value="Alterar"
+						action="#{usuarioCtrl.actionAlterar(u)}" align="center" />
+
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Excluir" />
+					</f:facet>
+					<h:commandButton value="Excluir"
+						action="#{usuarioCtrl.actionExcluir(u)}" align="center" />
+				</h:column>
+			</h:dataTable>
+
+			<h:outputLink value="#{request.contextPath}/publico/index.xhtml">Página Incial</h:outputLink>
+		</div>
+	</h:form>
+</body>
+
+
+</html>
