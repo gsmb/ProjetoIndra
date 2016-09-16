@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/layout.xhtml"
+>
+	<h:head>
+		<title>Arquivos Administativos</title>
+	</h:head>
+	<ui:define name="content">
+		<h:form>
+		<div align="center">
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+					<h:outputLabel value="Arquivos Administrativos" />
+				</f:facet>
+				<p:outputLabel value="Marketing Estratégico" />
+				<h:outputLink value="#{request.contextPath}/repositorio/aa1.pptx">Baixar</h:outputLink>
+				<p:outputLabel value="Documento de Segurança" />
+				<h:outputLink value="#{request.contextPath}/repositorio/aa2.rar">Baixar</h:outputLink>
+				<p:outputLabel value="Planejamento Estratégico" />
+				<h:outputLink value="#{request.contextPath}/repositorio/aa3.pptx">Baixar</h:outputLink>
+			</p:panelGrid>
+			<h2/>
+				<h:commandLink value="Menu de Opções" action="index.xhtml"></h:commandLink>  | 
+				<h:outputLink value="#{request.contextPath}/publico/index.xhtml">Página Inicial</h:outputLink>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

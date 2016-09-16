@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans xmlns:bean="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+     http://www.springframework.org/schema/security
+     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+
+
+	<http auto-config="true" access-denied-page="/publico/denied.xhtml">
+		<intercept-url pattern="/usuario/**"
+			access="ROLE_USER,ROLE_DIRETOR,ROLE_ADMIN" />
+		<intercept-url pattern="/diretor/**" access="ROLE_ADMIN,ROLE_DIRETOR" />
+		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+		<form-login login-page="/publico/login.xhtml" />
+		<!-- <logout logout-success-url="publico/index.xhtml" /> -->
+		<remember-me />
+		<logout logout-success-url="/publico/index.xhtml" />
+	</http>
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="md5" />
+			<jdbc-user-service data-source-ref="BDUsuarioDataSource"
+				authorities-by-username-query="SELECT usu_nome, authority FROM usuario WHERE usu_email = ?"
+				users-by-username-query="SELECT usu_email, usu_senha, '1' FROM usuario WHERE usu_email = ?" />
+		</authentication-provider>
+	</authentication-manager>
+</bean:beans>
+
+
+<!-- <user-service> -->
+<!-- <user name="admin" password="admin" authorities="ROLE_ADMIN" /> -->
+<!-- <user name="user" password="user" authorities="ROLE_USER" /> -->
+<!-- </user-service> -->
+
+
+<!-- always-use-default-target="true" default-target-url="/admin/indexadmin.xhtml" -->
+<!-- authentication-failure-url="/publico/index.xhtml?Login_error=1" /> -->

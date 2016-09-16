@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/layout.xhtml">
+	<h:head>
+		<title>Arquivos Diretor</title>
+	</h:head>
+	<ui:define name="content">
+		<h:form>
+		<div align="center">
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+					<p:outputLabel value="Arquivos Diretoria" />
+				</f:facet>
+				<p:outputLabel value="Sistema Bancário" />
+			<h:outputLink value="#{request.contextPath}/repositorio/ad1.pdf">Baixar</h:outputLink>
+			<p:outputLabel value="Documento do OpenAudit" />
+			<h:outputLink value="#{request.contextPath}/repositorio/ad2.pdf">Baixar</h:outputLink>
+		</p:panelGrid>
+		<h2/>
+		<h:outputLink value="#{request.contextPath}/publico/index.xhtml">Página Incial</h:outputLink>
+		 | 
+		<h:outputLink value="#{request.contextPath}/diretor/index.xhtml">Menu de Opções</h:outputLink>
+		</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+

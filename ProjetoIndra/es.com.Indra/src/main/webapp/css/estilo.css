@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+#global
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;    
+}
+#topo
+{
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  width: 800px;
+  height: 200px;
+  background-image: url('css/header.png');
+}
+#rodapé
+{
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  width: 800px;
+  height: 200px;
+   background-image: url('css/footer.png');
+}

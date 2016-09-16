@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/layout.xhtml">
+	<h:head>
+		<title>Login</title>
+	</h:head>
+	<ui:define name="content">
+
+        <p:dialog header="Login" visible="true" closable="false"
+            draggable="false" resizable="false" width="420">
+            <center>
+                <h:outputText value="Usuário ou senha incorretos!"
+                    rendered="#{!empty param.login_error}" style="color: red" />
+            </center>
+            <form action="#{request.contextPath}/j_spring_security_check"
+                method="post" >
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="j_username" value="E-mail: *" />
+                    <h:inputText id="j_username" required="true" />
+                    <h:outputLabel for="j_password" value="Senha: * " />
+                    <h:inputSecret id="j_password" required="true" />
+                    <h:commandButton class="btn btn-primary" value="Login" />		
+                </h:panelGrid>
+            </form>
+        </p:dialog>
+        Voltar para Página inicial		
+                    <h:outputLink value="#{request.contextPath}/publico/index.xhtml">aqui</h:outputLink>	
+    </ui:define>
+<!-- 	<ui:define name="content"> -->
+<!-- 		<h:panelGroup rendered="#{!empty param.login_error}">  -->
+<!-- 		Erro ao efetuar o login.<br /> -->
+<!-- 		Motivo: #{SPRING_SECURITY_LAST_EXCEPTION.message} -->
+<!-- 	</h:panelGroup> -->
+
+<!-- 		<form id="login" method="post" -->
+<!-- 			action="#{request.contextPath}/j_spring_security_check"> -->
+<!-- 			<table> -->
+<!-- 				<tr> -->
+<!-- 					<td>Login</td> -->
+<!-- 					<td><input type='text' name='j_username' /></td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td>Senha</td> -->
+<!-- 					<td><input type='password' name='j_password' /></td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td align="right"><input type="checkbox" -->
+<!-- 						name="_spring_security_remember_me" /></td> -->
+<!-- 					<td>Logar automaticamente</td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td></td> -->
+<!-- 					<td><input type="submit" value="Logar" /></td> -->
+<!-- 				</tr> -->
+<!-- 			</table> -->
+
+<!-- 			<script> -->
+// 				document.getElementById("login").j_username.value = "#{SPRING_SECURITY_LAST_USERNAME}";
+<!-- 			</script> -->
+			
+<!-- 		</form> -->
+		
+<!-- 	</ui:define> -->
+</ui:composition>
+</html>

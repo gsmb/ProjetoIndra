@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/layout.xhtml">
+	<h:head>
+		<title>Cadastro de usuário</title>
+	</h:head>
+	<ui:define name="content">
+		<h:form>
+			<div align="center">
+				<p:panelGrid columns="2">
+					<f:facet name="header">
+						<h:outputLabel value="Cadastro de Usuários" />
+					</f:facet>
+					<p:outputLabel value="Código" />
+					<p:inputText readonly="true" value="#{usuarioCtrl.usuario.id}" />
+					<p:outputLabel value="Nome*" />
+					<p:inputText value="#{usuarioCtrl.usuario.nome}" />
+					<p:outputLabel value="E-mail*" />
+					<p:inputText value="#{usuarioCtrl.usuario.email}" />
+					<p:outputLabel value="Senha*:" />
+					<p:password id="senha" value="#{usuarioCtrl.usuario.senha}"
+						feedback="true" promptLabel="Digite uma senha" weakLabel="Fraca"
+						goodLabel="Razoável" strongLabel="Forte" />
+
+					<p:outputLabel value="Nível*:" />
+					
+					<h:selectOneMenu value="#{usuarioCtrl.usuario.tipo}"
+						effect="fold" editable="true">
+						<f:selectItem itemValue="ROLE_ADMIN" itemLabel="Administrador" />
+						<f:selectItem itemValue="ROLE_DIRETOR" itemLabel="Diretor" />
+						<f:selectItem itemValue="ROLE_USER" itemLabel="Funcionário" />
+					</h:selectOneMenu>
+					
+				</p:panelGrid>
+				<h:commandButton value="Gravar" action="#{usuarioCtrl.actionGravar}" />
+				<h2 />
+				<h2></h2>
+				<p:commandLink value="Menu de Opções" action="index.xhtml"></p:commandLink>
+				 | 
+				<p:commandLink value="Lista de Usuários"
+					action="lista_usuario.xhtml"></p:commandLink>
+				<h2></h2>
+				<h:outputLink value="#{request.contextPath}/publico/index.xhtml">Página Incial</h:outputLink>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
