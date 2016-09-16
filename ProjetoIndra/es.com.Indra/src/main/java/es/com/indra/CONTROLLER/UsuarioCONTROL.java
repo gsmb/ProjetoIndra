@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 import es.com.indra.DAO.UsuarioDAO;
 import es.com.indra.ENTITY.Usuario;
 
-@ManagedBean
+@ManagedBean (name = "usuarioCtrl")
 @SessionScoped
 public class UsuarioCONTROL implements Serializable {
 	private static final long serialVersionUID = 1L;
